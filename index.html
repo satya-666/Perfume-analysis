@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eBay Men's Perfume Analytics Dashboard</title>
+    <meta name="description" content="A comprehensive analytics dashboard for eBay men's perfume sales, featuring key performance indicators and interactive charts.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <h1>ScentAlytics</h1>
+            </div>
+            <ul class="nav-links">
+                <li class="active"><a href="#" data-target="overview-tab" data-title="Dashboard Overview"><span class="icon">📊</span> Overview</a></li>
+                <li><a href="#" data-target="brands-tab" data-title="Top Brands"><span class="icon">🏷️</span> Top Brands</a></li>
+                <li><a href="#" data-target="types-tab" data-title="Perfume Types"><span class="icon">💧</span> Perfume Types</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <div>
+                    <h2 id="page-title">Dashboard Overview</h2>
+                    <p class="subtitle">eBay Men's Perfume Market Analysis</p>
+                </div>
+                <div class="user-profile">
+                    <div class="avatar">SP</div>
+                </div>
+            </header>
+
+            <div id="overview-tab" class="tab-section active">
+                <!-- KPIs Section -->
+                <section class="kpi-grid">
+                    <div class="kpi-card glass">
+                        <div class="kpi-icon revenue-icon">💰</div>
+                        <div class="kpi-details">
+                            <p class="kpi-title">Total Revenue</p>
+                            <h3 class="kpi-value" id="kpi-revenue">$0</h3>
+                        </div>
+                    </div>
+                    <div class="kpi-card glass">
+                        <div class="kpi-icon sold-icon">📦</div>
+                        <div class="kpi-details">
+                            <p class="kpi-title">Total Units Sold</p>
+                            <h3 class="kpi-value" id="kpi-sold">0</h3>
+                        </div>
+                    </div>
+                    <div class="kpi-card glass">
+                        <div class="kpi-icon price-icon">🏷️</div>
+                        <div class="kpi-details">
+                            <p class="kpi-title">Average Price</p>
+                            <h3 class="kpi-value" id="kpi-avg-price">$0</h3>
+                        </div>
+                    </div>
+                    <div class="kpi-card glass">
+                        <div class="kpi-icon list-icon">📋</div>
+                        <div class="kpi-details">
+                            <p class="kpi-title">Total Listings</p>
+                            <h3 class="kpi-value" id="kpi-listings">0</h3>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Data Table Section -->
+                <section class="table-section glass">
+                    <div class="card-header">
+                        <h3>Recent Top Performing Listings</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="perfumeTable">
+                            <thead>
+                                <tr>
+                                    <th>Brand</th>
+                                    <th>Title</th>
+                                    <th>Type</th>
+                                    <th>Price</th>
+                                    <th>Sold</th>
+                                    <th>Revenue</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Populated via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+            <div id="brands-tab" class="tab-section" style="display: none;">
+                <section class="charts-grid-single">
+                    <div class="chart-card glass">
+                        <div class="card-header">
+                            <h3>Top Brands by Revenue</h3>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="types-tab" class="tab-section" style="display: none;">
+                <section class="charts-grid-single">
+                    <div class="chart-card glass">
+                        <div class="card-header">
+                            <h3>Most Popular Perfume Types</h3>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="typeChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
